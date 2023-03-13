@@ -57,11 +57,11 @@ Resultados 13/03/2023:
 **Desarrollo**:
 * Inicializo la conexión con reMarkets.
 * Para conseguír las tasas implícitas tomadoras y colocadoras necesito los mismo datos que el incíso anterior con la excepción del precio del contrato de futuro, que debe ser ASK o BID respectivamente.
-*Para que mi programa calcule las tasas automaticamente cada vez que se modifican los precios uso la conexión WebSocket de byRofex, que envía mensajes a mi cliente una vez suscripto a la comunicación y a ciertos intrumentos y tipo de datos en particular.
-*Considero que, a partir del enunciado. La oportunidad de arbitraje se presenta cuando la "implied BID rate" es mayor a la "implied ASK rate".
-*Utilizando las funciones de manejo de mensaje proporcionadas por los documentos de byRofex se establece la conexión WebSocket y se empieza a recibir un mensaje con información sobre los contratos: BID, ASK, FECHAS, etc.
-*En mi función **market_data_handler** (la cual se ejecuta cada vez que mi cliente recibe un mensaje), guardo el ASK price, BID price, FECHA y aprovecho esta instancia de tiempo para guardar el precio del SPOT usando **what_spot** y **spot_last_close_price** y cantidad de días hasta el vencimiento usando **bus_days_till_mat**.
-*A medida que recibo los mensajes de los diferentes contratos guardo la información en un dataframe y computo la tasa implicita TOMADORA y COLOCADORA. Además, mediante un simple condicional busco posible oportunidades de arbitraje e imprimo todo en consola.
+* Para que mi programa calcule las tasas automaticamente cada vez que se modifican los precios uso la conexión WebSocket de byRofex, que envía mensajes a mi cliente una vez suscripto a la comunicación y a ciertos intrumentos y tipo de datos en particular.
+* Considero que, a partir del enunciado. La oportunidad de arbitraje se presenta cuando la "implied BID rate" es mayor a la "implied ASK rate".
+* Utilizando las funciones de manejo de mensaje proporcionadas por los documentos de byRofex se establece la conexión WebSocket y se empieza a recibir un mensaje con información sobre los contratos: BID, ASK, FECHAS, etc.
+* En mi función **market_data_handler** (la cual se ejecuta cada vez que mi cliente recibe un mensaje), guardo el ASK price, BID price, FECHA y aprovecho esta instancia de tiempo para guardar el precio del SPOT usando **what_spot** y **spot_last_close_price** y cantidad de días hasta el vencimiento usando **bus_days_till_mat**.
+* A medida que recibo los mensajes de los diferentes contratos guardo la información en un dataframe y computo la tasa implicita TOMADORA y COLOCADORA. Además, mediante un simple condicional busco posible oportunidades de arbitraje e imprimo todo en consola.
 
 #### Inciso E
 
